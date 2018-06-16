@@ -1,0 +1,19 @@
+{
+  "name": "commitcounter",
+  "version": "1.0.0",
+  "description": "Counts commits made to repos on github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IamTheCry/commitCounterv2.git"
+  },
+  "author": "Corey Chau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IamTheCry/commitCounterv2/issues"
+  },
+  "homepage": "https://github.com/IamTheCry/commitCounterv2#readme"
+}
