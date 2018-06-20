@@ -1,5 +1,9 @@
+import { counter } from './counter.js';
+import { sampleData } from './sampledata.js';
+
+
 const loginButton = document.getElementById('login');
-loginButton.addEventListener('click', (e) => {
+loginButton.addEventListener('click', () => {
   fetch('https://github.com/login/oauth/authorize', {
     mode: 'no-cors'
   })
@@ -15,7 +19,8 @@ loginButton.addEventListener('click', (e) => {
 const startDate = "2018-05-01T00:00:21Z"
 
 const countButton = document.getElementById('count');
-countButton.addEventListener('click', (e) => {
+countButton.addEventListener('click', () => {
+  counter(startDate, sampleData);
   /* from sample data 
   go through each repo
     for each repo, go through each commit
