@@ -1,5 +1,5 @@
 import { counter } from './counter.js';
-import { sampleData } from './sampledata.js';
+import { sampleArrayOfRepos } from './example.sampledata.js';
 
 
 const loginButton = document.getElementById('login');
@@ -20,6 +20,6 @@ loginButton.addEventListener('click', () => {
 });
 
 countButton.addEventListener('click', () => {
-  let result = counter(startDate, sampleData);
+  let result = counter(startDate, sampleArrayOfRepos);
   document.getElementById('numberofcommits').innerHTML = result;
 })
