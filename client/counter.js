@@ -23,6 +23,7 @@ const counter = (startDate, repoData) => {
     })
   });
   console.log(commitCount);
+  return commitCount;
 };
 
 

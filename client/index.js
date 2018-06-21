@@ -20,7 +20,8 @@ const startDate = "2018-05-01T00:00:21Z"
 
 const countButton = document.getElementById('count');
 countButton.addEventListener('click', () => {
-  counter(startDate, sampleData);
+  let result = counter(startDate, sampleData);
+  document.getElementById('numberofcommits').innerHTML = result;
   /* from sample data 
   go through each repo
     for each repo, go through each commit
