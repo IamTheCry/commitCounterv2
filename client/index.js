@@ -4,7 +4,8 @@ import { sampleArrayOfRepos } from './example.sampledata.js';
 
 const loginButton = document.getElementById('login');
 const countButton = document.getElementById('count');
-const startDate = "2018-05-01T00:00:21Z"
+const startDate = "2018-05-01T00:00:21Z";
+const userName = "Corey";
 
 loginButton.addEventListener('click', () => {
   fetch('https://github.com/login/oauth/authorize', {
@@ -20,6 +21,6 @@ loginButton.addEventListener('click', () => {
 });
 
 countButton.addEventListener('click', () => {
-  let result = counter(startDate, sampleArrayOfRepos);
+  let result = counter(startDate, sampleArrayOfRepos, userName);
   document.getElementById('numberofcommits').innerHTML = result;
 })

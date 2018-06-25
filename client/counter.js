@@ -5,7 +5,7 @@ for each repo go through all commits
   increment commit counter
 */
 
-const counter = (startDate, repoArray) => {
+const counter = (startDate, repoArray, userName) => {
   console.log(startDate);
   // console.log(repoData);
   // assume you've already gotten the list of all users public repos
@@ -16,7 +16,7 @@ const counter = (startDate, repoArray) => {
   let commitCount = 0;
   repoArray.forEach(repo => {
     repo.forEach(element => {
-      if(element.commit.author.name === 'Corey' && element.commit.author.date > startDate) {
+      if(element.commit.author.name === userName && element.commit.author.date > startDate) {
         commitCount++;
       }
     })
