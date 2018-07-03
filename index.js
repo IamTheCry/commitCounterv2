@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
+const clientSecret = require('./clientSecret')
 
 
 // app.get('/', (req, res) => {
@@ -11,6 +12,8 @@ const port = process.env.PORT || 3000
 app.get("/auth", (req, res) => {
   let code = req.query.code;
   console.log(code);
+  // send code and client secret
+  console.log(clientSecret)
   res.sendFile(__dirname + '/client/index.html');
 })
 
