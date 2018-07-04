@@ -29,14 +29,38 @@ countButton.addEventListener('click', () => {
       mode: 'cors' 
     }).then((response) => {
       return response.json();
-    }).then((repoInfo) => {
-      console.log(repoInfo);
     })
+    .then((repoInfo) => {
+      let promiseArray = repoInfo.map((repo) => {
+        // fetch on commitUrl
+        let commitUrl = repo.commits_url.slice(0,repo.commits_url.length - 6);
+        return fetch(`${commitUrl}?access_token=${token}`, {
+          mode:'cors'
+        }).then((response) => {
+          return response.json();
+        });
+      })
+      return Promise.all(promiseArray).then((repos) => {
+        console.log(repos)
+        // concat repos array and filter by author and .length
+        let commitCounts = repos.reduce((acc, value) => {
+          return acc.concat(value)
+        }, []).filter((x) => {
+          return x.commit.author.name === userInfo.login
+        }).length;
+         let transformation = repos; // transform
+        document.getElementById('numberofcommits').innerHTML = commitCounts;
+        return transformation;
+      })
+    })
+    //   return repoArray;
+    // }).then((repoArray) => {
+    //   let result = counter(startDate, repoArray, userInfo.login);
+    //   document.getElementById('numberofcommits').innerHTML = result;
+    // })
   })
   .catch(error => console.error(error));
 
 
-
-  let result = counter(startDate, sampleArrayOfRepos, userName);
-  document.getElementById('numberofcommits').innerHTML = result;
+  
 })
