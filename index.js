@@ -29,20 +29,18 @@ app.get("/auth", (req, res) => {
   // });
   // gitReq.end();
   let authToken;
-  const gitReq = https.get('https://github.com/login/oauth/access_token?client_id=d15a7f9f6bd292b7493c&client_secret=' + clientSecret + '&code=' + code, (res) => {
+  const gitReq = https.get('https://github.com/login/oauth/access_token?client_id=d15a7f9f6bd292b7493c&client_secret=' + clientSecret + '&code=' + code, (gitRes) => {
     
-    console.log(res.statusCode);
-    console.log(res.statusMessage);
-    res.setEncoding('utf8');
-    res.on('data', (data) => {
-      console.log(typeof(data));
+    console.log(gitRes.statusCode);
+    console.log(gitRes.statusMessage);
+    gitRes.setEncoding('utf8');
+    gitRes.on('data', (data) => {
       authToken = data.split('=')[1].split('&')[0];
+      res.cookie('authToken',authToken)
+      res.sendFile(__dirname + '/client/index.html');
     })
   });
   gitReq.end();
-  console.log('authtoken',authToken)
-  res.cookie('authToken',authToken)
-  res.sendFile(__dirname + '/client/index.html');
 })
 
 app.get("/repos", (req, res) => {
