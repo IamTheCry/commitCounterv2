@@ -1,7 +1,3 @@
-import { counter } from './counter.js';
-import { sampleArrayOfRepos } from './example.sampledata.js';
-
-
 const countButton = document.getElementById('count');
 const startDate = "2018-05-01T00:00:21Z";
 
