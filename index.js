@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const clientSecret = require('./clientSecret');
 const https = require('https');
+const clientSecret = process.env.CLIENTSECRET;
 // app.get('/', (req, res) => {
 //   res.cookie('session!', 'shouldbeencrypted');
 //   return res.sendFile(__dirname + '/client/index.html');
