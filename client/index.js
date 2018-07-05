@@ -4,7 +4,6 @@ import { sampleArrayOfRepos } from './example.sampledata.js';
 
 const countButton = document.getElementById('count');
 const startDate = "2018-05-01T00:00:21Z";
-const userName = "Corey";
 
 function cookieToObject(str) {
   let allCookies = str.split('; ');
@@ -46,7 +45,7 @@ countButton.addEventListener('click', () => {
         let commitCounts = repos.reduce((acc, value) => {
           return acc.concat(value)
         }, []).filter((x) => {
-          return x.commit.author.name === userInfo.login || x.commit.author.name === userInfo.name
+          return (x.commit.author.name === userInfo.login || x.commit.author.name === userInfo.name) && x.commit.author.date >= startDate
         }).length;
          let transformation = repos; // transform
         document.getElementById('numberofcommits').innerHTML = commitCounts;
