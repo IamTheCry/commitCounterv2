@@ -1,9 +1,8 @@
-#
-CommitCounter
+#CommitCounter
 
-##
-A simple tool to count number of github commits.
+##A simple tool to count number of github commits.
 
 ###
 To-Do:
-  Add github Oauth
+~~Add github Oauth~~
+Return all commits per repo (github API only returns 30)
