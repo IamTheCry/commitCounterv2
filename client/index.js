@@ -41,7 +41,7 @@ countButton.addEventListener('click', () => {
         let commitCounts = repos.reduce((acc, value) => {
           return acc.concat(value)
         }, []).filter((x) => {
-          return (x.commit) && (x.commit.author.name === userInfo.login || x.commit.author.name === userInfo.name) && x.commit.author.date >= startDate
+          return (x.commit) && (x.commit.author.email === userInfo.email || x.commit.author.name === userInfo.login || x.commit.author.name === userInfo.name) && x.commit.author.date >= startDate
         }).length;
          let transformation = repos; // transform
         document.getElementById('numberofcommits').innerHTML = commitCounts;
