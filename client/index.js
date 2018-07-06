@@ -29,7 +29,7 @@ countButton.addEventListener('click', () => {
       let promiseArray = repoInfo.map((repo) => {
         // fetch on commitUrl
         let commitUrl = repo.commits_url.slice(0,repo.commits_url.length - 6);
-        return fetch(`${commitUrl}?access_token=${token}`, {
+        return fetch(`${commitUrl}?per_page=100&access_token=${token}`, {
           mode:'cors'
         }).then((response) => {
           return response.json();
